@@ -1,0 +1,334 @@
+:root {
+    --red: #cc0000;
+    --red-dark: #8a0000;
+    --red-glow: rgba(204, 0, 0, 0.4);
+    --bg: #0a0a0a;
+    --text: #f0ece4;
+    --text-muted: #9a9080;
+    --overlay: rgba(10, 10, 10, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1 40px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
+    border-bottom: 1px solid rgba(204, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+#logo {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 0 8px var(--red-glow));
+    transition: filter 0.3s ease;
+}
+
+#logo:hover {
+    filter: drop-shadow(0 0 16px var(--red-glow));
+}
+
+nav ul {
+    display: flex;
+    gap: 100px;
+    margin-right: 50px;
+}
+
+nav li a {
+    color: var(--text-muted);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    width: 0;
+    height: 1px;
+    background: var(--red);
+    transition: width 0.3s ease;
+}
+
+nav li a:hover {
+    color: var(--red);
+}
+
+nav li a:hover::after {
+    width: 100%;
+}
+
+#banner {
+    background-image: url('./img/65d250af4879add6222b7b874d53122af6f769b0e402729759444b46b216b944.avif');
+    background-position: 50% 40%;
+    background-size: cover;
+    width: 100%;
+    height: 580px;
+}
+
+#banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.0) 40%,
+        rgba(10,10,10,1) 100%
+    );
+}
+
+#trailer-container {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    background: var(--bg);
+}
+
+.conteudo {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.trailer {
+    width: 55%;
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8), 0 0 1px rgba(204,0,0,0.5);
+    outline: 1px solid rgba(204,0,0,0.2);
+}
+
+#sinopse {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.descricao {
+    color: var(--text-muted);
+    font-size: 17px;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    border-left: 2px solid var(--red);
+    padding-left: 18px;
+}
+
+.butao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 50px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 20px var(--red-glow);
+}
+
+.butao:hover {
+    background-color: var(--red-dark);
+    box-shadow: 0 6px 28px rgba(204,0,0,0.6);
+    transform: translateY(-2px);
+}
+
+.galeria {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 80px;
+    background: var(--bg);
+}
+
+.conteudo-img {
+    width: 88%;
+    display: flex;
+    gap: 20px;
+}
+
+.img {
+    flex: 1;
+    height: 520px;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: flex 0.5s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 16px;
+}
+
+.img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    transition: opacity 0.4s ease;
+}
+
+.img span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.img:hover {
+    flex: 1.5;
+    box-shadow: 0 0 30px rgba(204,0,0,0.3);
+}
+
+.img:hover span {
+    opacity: 1;
+}
+
+.banner-1 { background-image: url(https://outpost.dyinglightgame.com/img/news/20250828_DevBlogCreateaBeast/061.jpg); }
+.banner-2 { background-image: url(https://techland.net/upload/presscenter/gallery/dl1/preview/DL1_screen_15.jpg); }
+.banner-3 { background-image: url(https://static.wikia.nocookie.net/dyinglight/images/0/09/DLTF_%E2%80%94_Blue_Volatile_%28art%29.png/revision/latest?cb=20160226225815); }
+
+footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    background: #070707;
+}
+
+#logo-baixo {
+    width: 180px;
+    height: auto;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 6px var(--red-glow));
+}
+
+span {
+    color: var(--text-muted);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.footer-navigation { display: none; }
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-list li a {
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', sans-serif;
+    transition: color 0.3s;
+}
+
+.footer-list li a:hover { color: var(--red); }
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .footer-navigation { display: block; }
+
+    nav:not(.footer-navigation) { display: none; }
+
+    #banner {
+        height: 380px;
+        background-position: 40% center;
+    }
+
+    #trailer-container {
+        padding: 40px 0;
+    }
+
+    .conteudo {
+        width: 92%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .trailer { width: 100%; }
+
+    #sinopse { width: 100%; }
+
+    .descricao { font-size: 15px; }
+
+    .butao { width: 100%; }
+
+    .conteudo-img {
+        flex-direction: column;
+        width: 92%;
+    }
+
+    .img {
+        height: 260px;
+        flex: none !important;
+    }
+
+    footer { padding: 40px 20px; }
+}
