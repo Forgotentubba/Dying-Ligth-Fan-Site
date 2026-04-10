@@ -5,6 +5,7 @@
     --bg: #0a0a0a;
     --text: #f0ece4;
     --text-muted: #9a9080;
+    --ft-text: #1900fc;
 }
 
 * {
@@ -152,4 +153,93 @@ nav li a:hover::after { width: 100%; }
     background-color: var(--red-dark);
     box-shadow: 0 6px 28px rgba(204,0,0,0.6);
     transform: translateY(-2px);
+}
+
+footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+span {
+    color:rgb(14, 204, 0);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.footer-navigation { display: none; }
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-list li a {
+    color: var(--ft-text);
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', sans-serif;
+    transition: color 0.3s;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        justify-content: center;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .footer-navigation { display: block; }
+
+    nav:not(.footer-navigation) { display: none; }
+
+    #banner {
+        height: 380px;
+        background-position: 40% center;
+    }
+
+    #trailer-container {
+        padding: 40px 0;
+    }
+
+    .conteudo {
+        width: 92%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .trailer { width: 100%; }
+
+    #sinopse { width: 100%; }
+
+    .descricao { font-size: 15px; }
+
+    .butao { width: 100%; }
+
+    .conteudo-img {
+        flex-direction: column;
+        width: 92%;
+    }
+
+    .img {
+        height: 260px;
+        flex: none !important;
+    }
+
+    footer { padding: 40px 20px; }
 }
